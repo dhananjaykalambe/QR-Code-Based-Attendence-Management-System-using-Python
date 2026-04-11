@@ -1,0 +1,1 @@
+# QR-Code-Based-Attendence-Management-System-using-Python-1
