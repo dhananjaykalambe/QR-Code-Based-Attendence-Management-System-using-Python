@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan QR</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Smart Attendance</h2>
+<a href="/">Home</a>
+<a href="/create_session">Start Lecture</a>
+<a href="/scan">Scan QR</a>
+<a href="/attendance">View Attendance</a>
+<a href="/add_student">Add Student</a>
+<a href="/students_report">Students Report</a>
+<a href="/subject_details">Subject Details</a>
+<a href="/about">About</a>
+</div>
+
+<div class="main">
+
+<div class="header">
+    Priyadarshini Bhagwati College of Engineering, Harpur Nagpur
+</div>
+
+<div class="card">
+    <h2>Scan QR Code</h2>
+
+    <p id="status">Allow camera & location...</p>
+
+    <div id="reader"></div>
+
+    <form method="POST" action="/mark">
+        <input type="text" name="student_id" placeholder="Enter Roll No" required>
+        <input type="text" id="session_id" name="session_id" placeholder="Session ID" required>
+
+        <input type="hidden" name="lat" id="lat">
+        <input type="hidden" name="lon" id="lon">
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<script>
+// QR SCANNER
+function onScanSuccess(decodedText) {
+    document.getElementById("session_id").value = decodedText;
+}
+
+function startScanner() {
+    const scanner = new Html5QrcodeScanner("reader", {
+        fps: 10,
+        qrbox: 200
+    });
+    scanner.render(onScanSuccess);
+}
+
+// LOCATION
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                document.getElementById("lat").value = position.coords.latitude;
+                document.getElementById("lon").value = position.coords.longitude;
+                document.getElementById("status").innerText = "Ready to scan";
+            },
+            function(error) {
+                document.getElementById("status").innerText = "Location permission denied!";
+            }
+        );
+    } else {
+        document.getElementById("status").innerText = "Geolocation not supported!";
+    }
+}
+
+// LOAD BOTH PROPERLY
+window.onload = function() {
+    getLocation();
+    startScanner();
+};
+</script>
+
+</div>
+
+</body>
+</html>

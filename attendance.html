@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Smart Attendance</h2>
+<a href="/">Home</a>
+<a href="/create_session">Start Lecture</a>
+<a href="/scan">Scan QR</a>
+<a href="/attendance">View Attendance</a>
+<a href="/add_student">Add Student</a>
+<a href="/students_report">Students Report</a>
+<a href="/subject_details">Subject Details</a>
+<a href="/about">About</a>
+</div>
+
+<div class="main">
+
+<div class="header">
+    Priyadarshini Bhagwati College of Engineering, Harpur Nagpur
+</div>
+
+<div class="card">
+    <h2>Attendance Records</h2>
+
+    <table>
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Branch</th>
+            <th>Subject</th>
+            <th>Time</th>
+        </tr>
+
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</div>
+
+</div>
+
+</body>
+</html>

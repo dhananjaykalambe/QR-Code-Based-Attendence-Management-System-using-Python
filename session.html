@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Session</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Smart Attendance</h2>
+<a href="/">Home</a>
+<a href="/create_session">Start Lecture</a>
+<a href="/scan">Scan QR</a>
+<a href="/attendance">View Attendance</a>
+<a href="/add_student">Add Student</a>
+<a href="/students_report">Students Report</a>
+<a href="/subject_details">Subject Details</a>
+<a href="/about">About</a>
+</div>
+
+<div class="main">
+
+<div class="header">
+    Priyadarshini Bhagwati College of Engineering, Harpur Nagpur
+</div>
+
+<div class="card" style="text-align: center;">
+    <h2>Session Created</h2>
+    <h3>ID: {{ session_id }}</h3>
+    <img src="/static/{{ session_id }}.png" width="200">
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Session</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Smart Attendance</h2>
+<a href="/">Home</a>
+<a href="/create_session">Start Lecture</a>
+<a href="/scan">Scan QR</a>
+<a href="/attendance">View Attendance</a>
+<a href="/add_student">Add Student</a>
+<a href="/students_report">Students Report</a>
+<a href="/subject_details">Subject Details</a>
+<a href="/about">About</a>
+</div>
+
+<div class="main">
+
+<div class="header">
+    Priyadarshini Bhagwati College of Engineering, Harpur Nagpur
+</div>
+
+<div class="card">
+
+    <h2>Select Subject</h2>
+
+    <form method="POST">
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:15px;">
+
+            {% for sub in subjects %}
+            <button type="submit" name="subject" value="{{ sub }}" 
+                    style="width:auto; padding:10px 15px; font-size:14px; border-radius:20px;">
+                {{ sub }}
+            </button>
+            {% endfor %}
+
+        </div>
+    </form>
+
+</div>
+
+</div>
+
+</body>
+</html>

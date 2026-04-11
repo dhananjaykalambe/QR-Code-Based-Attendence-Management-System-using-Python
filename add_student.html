@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Student</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="sidebar">
+<h2>Smart Attendance</h2>
+<a href="/">Home</a>
+<a href="/create_session">Start Lecture</a>
+<a href="/scan">Scan QR</a>
+<a href="/attendance">View Attendance</a>
+<a href="/add_student">Add Student</a>
+<a href="/students_report">Students Report</a>
+<a href="/subject_details">Subject Details</a>
+<a href="/about">About</a>
+</div>
+<div class="main">
+
+<div class="header">
+    Priyadarshini Bhagwati College of Engineering, Harpur Nagpur
+</div>
+
+<div class="card">
+    <h2>Add Student</h2>
+
+    <form method="POST">
+        <input type="text" name="roll" placeholder="Roll No" required>
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="text" name="branch" placeholder="Branch" required>
+        <button type="submit">Add Student</button>
+    </form>
+</div>
+
+</div>
+
+</body>
+</html>
